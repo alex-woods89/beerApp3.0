@@ -13,9 +13,10 @@ namespace BeerApp.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        public object beer { get; set; }
+        [BsonElement("Name")]
+        public string name { get; set; }
 
-       //
+
     }
 
 }
