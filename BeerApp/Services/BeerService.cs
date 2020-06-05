@@ -1,9 +1,7 @@
 ﻿using BeerApp.Models;
 using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace BeerApp.Services
 {
@@ -23,7 +21,7 @@ namespace BeerApp.Services
             _beers.Find(beer => true).ToList();
 
         public Beer Get(string id) =>
-            _beers.Find<Beer>(beer => beer.Id == id).FirstOrDefault();
+            _beers.Find<Beer>(beer => beer.objectid == id).FirstOrDefault();
 
         public Beer Create(Beer beer)
         {
@@ -32,12 +30,12 @@ namespace BeerApp.Services
         }
 
         public void Update(string id, Beer beerIn) =>
-            _beers.ReplaceOne(beer => beer.Id == id, beerIn);
+            _beers.ReplaceOne(beer => beer.objectid == id, beerIn);
 
         public void Remove(Beer beerIn) =>
-            _beers.DeleteOne(beer => beer.Id == beerIn.Id);
+            _beers.DeleteOne(beer => beer.objectid == beerIn.objectid);
 
         public void Remove(string id) =>
-            _beers.DeleteOne(beer => beer.Id == id);
+            _beers.DeleteOne(beer => beer.objectid == id);
     }
 }

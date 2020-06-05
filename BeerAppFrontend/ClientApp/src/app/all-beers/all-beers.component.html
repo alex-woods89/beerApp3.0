@@ -1,0 +1,14 @@
+<h1 align="center" class="h1">All the beers</h1>
+
+
+<ul  style="display: flex; flex-wrap: wrap;">
+  <li *ngFor="let beer of AllBeers" style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+    <div  class="card" style="width: 18rem; margin-bottom: 10px; height:550px;" >
+      <div class="card-body">
+        <h5 class="card-title">{{beer.name}}</h5>
+        <p class="card-text">{{beer.description}}</p>
+        <button (click)="postToFavourites(beer)" class="btn-primary">Add To Favourites</button>
+      </div>
+    </div>
+  </li>
+</ul>
